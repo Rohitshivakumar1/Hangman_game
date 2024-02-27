@@ -9,13 +9,19 @@ word_len = len(chosen_word)
 for i in range(word_len):
     display += "_"
 
-guess = input("guess the letter").lower()
+end_of_game = False
+while not end_of_game:
+    guess = input("guess the letter").lower()
 
-for position in range(word_len):
-    letter = chosen_word[position]
+    for position in range(word_len):
+        letter = chosen_word[position]
 
-    if letter == guess:
-        display[position] = letter
+        if letter == guess:
+            display[position] = letter
 
-print(display)
+    print(display)
+
+    if "_" not in display:
+        end_of_game = True
+        print("you win")
 
